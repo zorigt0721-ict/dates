@@ -132,10 +132,7 @@ document.getElementById("date-form").addEventListener("submit", async (e) => {
         month: "long",
         day: "numeric",
       });
-      const timeFormatted = new Date("2000-01-01T" + time).toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-      });
+      const timeFormatted = time; // Simple 24h format like "14:30"
 
       document.getElementById("success-detail").textContent =
         `📅 ${formatted} at ⏰ ${timeFormatted}`;
