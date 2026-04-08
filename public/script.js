@@ -94,6 +94,8 @@ btnNo.addEventListener("touchstart", (e) => {
 
 // --- YES Button → Show Form ---
 document.getElementById("btn-yes").addEventListener("click", () => {
+  // Hide the escaped NO button so it doesn't block the form
+  btnNo.style.display = "none";
   showScreen("screen-form");
 });
 

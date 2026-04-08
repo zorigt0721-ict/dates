@@ -37,6 +37,7 @@ html, body {
   font-family: 'Quicksand', sans-serif;
   background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 40%, var(--cream) 100%);
   color: var(--brown-warm);
+  -webkit-text-size-adjust: 100%;
 }
 
 /* --- Screens --- */
@@ -52,6 +53,8 @@ html, body {
   pointer-events: none;
   transition: opacity 0.8s ease;
   z-index: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .screen.active {
@@ -441,13 +444,64 @@ html, body {
 
 /* --- Mobile Responsive --- */
 @media (max-width: 500px) {
+  .screen {
+    padding: 1.2rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .intro-content {
+    gap: 1.2rem;
+  }
+
+  .whisper {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .rocky-img {
+    width: 80px;
+    height: 80px;
+  }
+
   .envelope {
-    width: 130px;
-    height: 90px;
+    width: 120px;
+    height: 85px;
+  }
+
+  .question-content {
+    gap: 0.8rem;
+  }
+
+  .question-text {
+    font-size: clamp(1.4rem, 5vw, 2.4rem);
+  }
+
+  .heart-emoji {
+    font-size: 2.2rem;
   }
 
   .form-content {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem;
+    margin: auto 0;
+  }
+
+  .form-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  #date-form {
+    gap: 0.9rem;
+  }
+
+  .field input {
+    padding: 0.65rem 0.8rem;
+    font-size: 1rem;
   }
 
   .buttons {
@@ -457,5 +511,14 @@ html, body {
   .btn {
     padding: 0.75rem 1.8rem;
     font-size: 1rem;
+  }
+
+  .btn-submit {
+    padding: 0.85rem 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .success-content h2 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
   }
 }
