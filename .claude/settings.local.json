@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(node -e \":*)",
+      "Bash(curl -s http://localhost:3000/api/accept -X POST -H \"Content-Type: application/json\" -d '{\"\"date\"\":\"\"2026-04-10\"\",\"\"time\"\":\"\"18:00\"\"}')"
     ]
   }
 }

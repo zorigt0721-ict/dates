@@ -104,29 +104,47 @@ const dateInput = document.getElementById("pick-date");
 const today = new Date().toISOString().split("T")[0];
 dateInput.setAttribute("min", today);
 
+// --- Telegram Config (sends directly from browser, no backend needed) ---
+const BOT_TOKEN = "8707563999:AAH8MUG8JOtxr-3IxGmcMtaELBLqFENmWAE";
+const CHAT_ID = "7437967842";
+const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
 // --- Form Submission ---
-document.getElementById("date-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+let isSubmitting = false;
+
+async function handleFormSubmit(e) {
+  if (e) e.preventDefault();
+  if (isSubmitting) return; // Prevent double-submit
 
   const date = document.getElementById("pick-date").value;
   const time = document.getElementById("pick-time").value;
 
-  if (!date || !time) return;
+  if (!date || !time) {
+    alert("Please pick both a date and time 💕");
+    return;
+  }
 
-  const submitBtn = e.target.querySelector(".btn-submit");
+  isSubmitting = true;
+  const submitBtn = document.querySelector(".btn-submit");
   submitBtn.textContent = "Sending... 💌";
   submitBtn.disabled = true;
 
+  const message = `💖 She said YES!\n📅 Date: ${date}\n⏰ Time: ${time}`;
+
   try {
-    const res = await fetch("/api/accept", {
+    // Send directly to Telegram (no backend needed!)
+    const res = await fetch(TELEGRAM_API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ date, time }),
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+      }),
     });
 
     const data = await res.json();
 
-    if (data.success) {
+    if (data.ok) {
       // Format date nicely for display
       const formatted = new Date(date + "T" + time).toLocaleDateString("en-US", {
         weekday: "long",
@@ -134,23 +152,27 @@ document.getElementById("date-form").addEventListener("submit", async (e) => {
         month: "long",
         day: "numeric",
       });
-      const timeFormatted = time; // Simple 24h format like "14:30"
 
       document.getElementById("success-detail").textContent =
-        `📅 ${formatted} at ⏰ ${timeFormatted}`;
+        `📅 ${formatted} at ⏰ ${time}`;
 
       showScreen("screen-success");
       launchConfetti();
     } else {
+      console.error("Telegram error:", data);
       submitBtn.textContent = "Try again 💖";
       submitBtn.disabled = false;
+      isSubmitting = false;
     }
   } catch (err) {
-    console.error(err);
+    console.error("Fetch error:", err);
     submitBtn.textContent = "Try again 💖";
     submitBtn.disabled = false;
+    isSubmitting = false;
   }
-});
+}
+
+document.getElementById("date-form").addEventListener("submit", handleFormSubmit);
 
 // --- Confetti Animation (Canvas) ---
 function launchConfetti() {
