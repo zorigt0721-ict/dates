@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -17,8 +20,8 @@
   <!-- ========== SCREEN 1: INTRO ========== -->
   <section id="screen-intro" class="screen active">
     <div class="intro-content fade-in">
-      <p class="whisper">Hey you...</p>
-      <h1 class="typewriter">I have something to tell you...</h1>
+      <p class="whisper">Энэ сайхан өдрийн мэнд</p>
+      <h1 class="typewriter">Чамд хэлэх зүйл байгаа юм лдаа...</h1>
       <div class="envelope-wrapper" id="envelope" role="button" tabindex="0" aria-label="Open the letter">
         <div class="envelope">
           <div class="envelope-flap"></div>
@@ -26,7 +29,7 @@
             <div class="letter">💌</div>
           </div>
         </div>
-        <p class="tap-hint">tap the letter</p>
+        <p class="tap-hint">захидал дээр дараарай</p>
       </div>
     </div>
   </section>
@@ -65,16 +68,16 @@
 
   <!-- ========== SCREEN 4: SUCCESS ========== -->
   <section id="screen-success" class="screen">
-    <div class="success-content fade-in-up">
-      <h2>Can't wait! 🥹💕</h2>
+    <div class="success-content fade-in-up lobster-regular">
+      <h2>Хүлээж чадахгүйнээ ххэ! 🥹💕</h2>
       <p class="success-detail" id="success-detail"></p>
-      <p class="success-note">See you soon... 💌</p>
+      <p class="success-note lobster-regular">Хурдан тэр өдөр ирээсэй... 💌</p>
     </div>
   </section>
 
   <!-- 🎵 Optional background music (autoplay blocked by most browsers, user must interact) -->
   <audio id="bg-music" loop preload="auto">
-    <source src="https://cdn.pixabay.com/audio/2024/11/01/audio_4956b4eff1.mp3" type="audio/mpeg" />
+    <source src="./duu.mp3" type="audio/mpeg" />
   </audio>
   <button id="music-toggle" class="music-btn" aria-label="Toggle music">🎵</button>
 

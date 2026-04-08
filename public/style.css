@@ -9,6 +9,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
   --white: #fffaf7;
@@ -19,6 +24,11 @@
   --brown-light: #d4a373;
   --brown-soft: #b08968;
   --cream: #fef3e2;
+}
+.bad-script-regular {
+  font-family: "Bad Script", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 html, body {
@@ -113,7 +123,7 @@ html, body {
 
 /* --- Typewriter Effect --- */
 .typewriter {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Bad Script", cursive;
   font-size: clamp(1.6rem, 5vw, 3rem);
   color: var(--brown-warm);
   overflow: hidden;
@@ -363,12 +373,13 @@ html, body {
 }
 
 .success-content h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Bad Script", cursive;
   font-size: clamp(2rem, 6vw, 3rem);
   color: var(--pink-deep);
 }
 
 .success-detail {
+  font-family: "Lobster", sans-serif;
   font-size: 1.15rem;
   color: var(--brown-warm);
   background: rgba(255,255,255,0.7);
@@ -377,7 +388,7 @@ html, body {
 }
 
 .success-note {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Lobster", sans-serif;
   font-size: 1.5rem;
   color: var(--brown-soft);
   margin-top: 0.5rem;
