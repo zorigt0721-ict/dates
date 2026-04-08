@@ -160,6 +160,16 @@ html, body {
   animation: fadeIn 1s ease forwards;
 }
 
+.rocky-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.2);
+}
+
 /* --- Envelope --- */
 .envelope-wrapper {
   cursor: pointer;
