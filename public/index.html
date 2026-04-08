@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💌 I Have Something to Tell You...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating hearts background -->
+  <div id="hearts-bg" aria-hidden="true"></div>
+
+  <!-- ========== SCREEN 1: INTRO ========== -->
+  <section id="screen-intro" class="screen active">
+    <div class="intro-content fade-in">
+      <p class="whisper">Hey you...</p>
+      <h1 class="typewriter">I have something to tell you...</h1>
+      <div class="envelope-wrapper" id="envelope" role="button" tabindex="0" aria-label="Open the letter">
+        <div class="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="letter">💌</div>
+          </div>
+        </div>
+        <p class="tap-hint">tap the letter</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SCREEN 2: THE QUESTION ========== -->
+  <section id="screen-question" class="screen">
+    <div class="question-content">
+      <div class="sparkle-ring">✨</div>
+      <h2 class="question-text fade-in-up">Will you go on a date with me?</h2>
+      <p class="heart-emoji pulse">💖</p>
+      <div class="buttons">
+        <button id="btn-yes" class="btn btn-yes">Yes! 💕</button>
+        <button id="btn-no" class="btn btn-no">No 😢</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SCREEN 3: DATE FORM ========== -->
+  <section id="screen-form" class="screen">
+    <div class="form-content fade-in-up">
+      <h2>Yay! 🥰</h2>
+      <p class="subtitle">Pick a date & time for us:</p>
+      <form id="date-form">
+        <div class="field">
+          <label for="pick-date">📅 Date</label>
+          <input type="date" id="pick-date" required />
+        </div>
+        <div class="field">
+          <label for="pick-time">⏰ Time</label>
+          <input type="time" id="pick-time" required />
+        </div>
+        <button type="submit" class="btn btn-submit">It's a date! 💖</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== SCREEN 4: SUCCESS ========== -->
+  <section id="screen-success" class="screen">
+    <div class="success-content fade-in-up">
+      <h2>Can't wait! 🥹💕</h2>
+      <p class="success-detail" id="success-detail"></p>
+      <p class="success-note">See you soon... 💌</p>
+    </div>
+  </section>
+
+  <!-- 🎵 Optional background music (autoplay blocked by most browsers, user must interact) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2024/11/01/audio_4956b4eff1.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-toggle" class="music-btn" aria-label="Toggle music">🎵</button>
+
+  <!-- Canvas for confetti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
